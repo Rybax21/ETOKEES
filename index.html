@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emilio & Sandra — Invitación de boda</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#5a2a2a">
+</head>
+<body>
+  <!-- Sticky nav -->
+  <header class="site-header" aria-label="Barra superior">
+    <a class="brand" href="#inicio" aria-label="Volver al inicio">E & S</a>
+    <nav aria-label="Navegación principal">
+      <a href="#detalles">Detalles</a>
+      <a href="#contador">Cuenta atrás</a>
+      <a class="btn btn-primary" href="#confirmar">Confirmar asistencia</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero" role="banner">
+    <div class="hero-inner">
+      <p class="passport-kicker" aria-hidden="true">PASSPORT</p>
+      <img src="estrella.png" alt="" class="brujula" />
+      <h1 class="nombres" aria-label="Emilio José y Sandra">Emilio José<span class="amp" aria-hidden="true"> & </span>Sandra</h1>
+      <p class="fecha" aria-label="18 de octubre de 2025">18 · 10 · 2025</p>
+
+      <button class="btn btn-secondary cta-scroll" data-scroll="#confirmar">
+        Confirmar asistencia
+      </button>
+    </div>
+
+    <!-- Avión animado -->
+    <canvas id="canvasAvion" aria-hidden="true"></canvas>
+  </section>
+
+  <main>
+    <!-- VIAJE DE NUESTRA VIDA + Polaroid -->
+    <section id="detalles" class="map-section info-boda fondo-compartido">
+      <div class="container">
+        <p class="bienvenida">Bienvenidos al</p>
+        <h2 class="titulo">VIAJE DE NUESTRA VIDA</h2>
+        <p class="subtitulo">Toca el marco para revelar la foto ✨</p>
+
+        <figure class="polaroid-contenedor" id="polaroidFoto" aria-label="Marco de foto estilo Polaroid">
+          <img src="blanco.png" alt="" class="marco-polaroid" />
+          <img src="" alt="Foto de Emilio y Sandra" class="foto-incrustada" id="fotoReal" loading="lazy">
+          <figcaption class="texto-polaroid">Emilio ❤ Sandra</figcaption>
+        </figure>
+
+        <div class="detalles">
+          <article class="bloque card">
+            <img src="pasaporte.png" alt="" aria-hidden="true" />
+            <h3>La ceremonia</h3>
+            <p class="hora">17:00 h</p>
+            <p>Iglesia San Isidro Labrador</p>
+            <p>Plaza Parque, 4</p>
+            <p>Vegas Altas, Badajoz</p>
+            <a href="https://www.google.com/maps/place/Plaza+Parque,+4,+06731+Vegas+Altas,+Badajoz" target="_blank" rel="noopener" class="btn btn-ghost">Ver ubicación</a>
+          </article>
+
+          <article class="bloque card">
+            <img src="avion.png" alt="" aria-hidden="true" />
+            <h3>La celebración</h3>
+            <p class="hora">19:00 h</p>
+            <p>Complejo Rural El Prado</p>
+            <p>Carretera Guadalupe km 49</p>
+            <p>Logrosán, Cáceres</p>
+            <a href="https://maps.app.goo.gl/YNEH5jrHc4G6V7QR7" target="_blank" rel="noopener" class="btn btn-ghost">Ver ubicación</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTADOR -->
+    <section id="contador" class="cuenta-atras">
+      <div class="container">
+        <img src="brujula-sello.png" alt="" class="sello-brujula" />
+        <p class="faltan-titulo" aria-hidden="true">FALTAN</p>
+
+        <div class="reloj" aria-live="polite" aria-atomic="true">
+          <div><span id="dias">—</span><p>Días</p></div>
+          <div><span id="horas">—</span><p>Horas</p></div>
+          <div><span id="minutos">—</span><p>Minutos</p></div>
+          <div><span id="segundos">—</span><p>Segundos</p></div>
+        </div>
+
+        <div class="momentos-boda">
+          <div class="momento">
+            <img src="anillos.png" alt="" />
+            <h3>Sí, quiero</h3>
+            <p>17:30 h</p>
+          </div>
+          <div class="momento">
+            <img src="copas.png" alt="" />
+            <h3>Cóctel</h3>
+            <p>19:15 h</p>
+          </div>
+          <div class="momento">
+            <img src="plato.png" alt="" />
+            <h3>Banquete</h3>
+            <p>21:00 h</p>
+          </div>
+          <div class="momento">
+            <img src="tarta.png" alt="" />
+            <h3>Fiesta</h3>
+            <p>00:00 h</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIRMAR -->
+    <section id="confirmar" class="confirmar-asistencia">
+      <div class="container">
+        <h2 class="titulo-confirmacion">¿Nos confirmáis asistencia?</h2>
+
+        <form class="formulario-asistencia" method="POST" action="https://script.google.com/macros/s/AKfycby6-1g79utDY0H9-w9fLEWYE4mJ6x5-LRd-ufHNk6jA8TxawD0YAiAdFLTnJX7LEHKD/exec" novalidate>
+          <fieldset class="opciones" aria-label="Asistencia">
+            <label class="radio">
+              <input type="radio" name="asistencia" value="si" required>
+              <span>Claro que sí, ¡gracias!</span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="asistencia" value="no" required>
+              <span>Lo sentimos, no podemos asistir</span>
+            </label>
+          </fieldset>
+
+          <div class="grid-two">
+            <label class="field">
+              <span>Nombre</span>
+              <input type="text" name="nombre" placeholder="Nombre y apellidos" required />
+            </label>
+
+            <label class="field">
+              <span>Parentesco con los novios</span>
+              <input type="text" name="parentesco" placeholder="Familia, amigos, etc." required />
+            </label>
+          </div>
+
+          <div class="grid-two">
+            <label class="field">
+              <span>Nº de invitados</span>
+              <input type="number" name="numero_invitados" min="1" max="12" placeholder="Ej: 2" required />
+            </label>
+
+            <label class="field">
+              <span>Teléfono</span>
+              <input type="tel" name="telefono" inputmode="tel" placeholder="Ej: 600123456" required />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>¿Quieres chozo?</span>
+            <select name="chozo" required>
+              <option value="">Selecciona una opción…</option>
+              <option value="si">Sí</option>
+              <option value="no">No</option>
+            </select>
+            <small class="hint">El “chozo” es una habitación en el restaurante, con todo lo necesario.</small>
+          </label>
+
+          <label class="field">
+            <span>Tu canción</span>
+            <input type="text" name="cancion" placeholder="¿Qué canción quieres que suene?" required />
+          </label>
+
+          <label class="field">
+            <span>Mensaje / alergias / intolerancias</span>
+            <textarea name="mensaje" rows="4" placeholder="Cuéntanos lo que necesites…"></textarea>
+          </label>
+
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <p class="form-note">Al enviar, verás tu <strong>tarjeta de embarque</strong> con los datos.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    Hecho con amor ❤️ <strong>Rybax</strong>
+  </footer>
+
+  <script src="javascript.js" defer></script>
+</body>
+</html>

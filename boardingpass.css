@@ -1,0 +1,105 @@
+body {
+  background: url('playa.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.boarding-pass {
+  background: rgba(255, 255, 255, 0.96);
+  border: 2px solid gold;
+  border-radius: 20px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+  padding: 30px;
+  backdrop-filter: blur(12px);
+  color: #222;
+  position: relative;
+  z-index: 1;
+}
+
+.bp-header {
+  text-align: center;
+  border-bottom: 2px dashed #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.bp-header h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  color: #c5a200;
+  margin: 0;
+}
+
+.bp-header p {
+  font-size: 13px;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+.bp-body {
+  font-size: 14px;
+}
+
+.bp-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #bbb;
+}
+
+.bp-group span {
+  font-weight: 600;
+  color: #333;
+}
+
+.bp-group strong {
+  font-weight: 700;
+  color: #000;
+}
+
+.bp-footer {
+  text-align: center;
+  border-top: 2px dashed #ccc;
+  padding-top: 15px;
+  margin-top: 25px;
+  font-size: 13px;
+  color: #444;
+}
+
+.bp-footer::before {
+  content: '\2708';
+  font-size: 20px;
+  display: block;
+  margin-bottom: 5px;
+  color: #aaa;
+}
+
+.qr-placeholder {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.qr-placeholder img {
+  width: 80px;
+  opacity: 0.8;
+}

@@ -1,0 +1,169 @@
+/* =========
+   Diseño base
+   ========= */
+:root{
+  --bg: #f8f4f0;
+  --paper: #ffffff;
+  --ink: #2b1c1c;
+  --ink-soft:#3b1f1f;
+  --brand:#5a2a2a;
+  --brand-2:#7a4444;
+  --ghost:#efe7dc;
+  --ring: 0 0 0 3px rgba(122,68,68,.25);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Playfair Display', serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+.container{max-width:1050px;margin:0 auto;padding:0 20px}
+
+/* Header fijo */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:10px 16px;
+  background:rgba(248,244,240,.8); backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid #eadfd1;
+}
+.site-header .brand{
+  font-family:'Great Vibes', cursive;
+  font-size:28px; color:var(--brand); text-decoration:none;
+}
+.site-header nav{display:flex; gap:14px; align-items:center}
+.site-header nav a{
+  color:var(--ink); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:10px;
+}
+.site-header nav a:hover{background:var(--ghost)}
+
+/* Botones */
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 16px; font-weight:600; border-radius:12px; text-decoration:none; cursor:pointer; transition:.2s}
+.btn-primary{background:var(--brand); color:#fff; box-shadow:0 6px 16px rgba(90,42,42,.25)}
+.btn-primary:hover{transform:translateY(-1px); background:#472020}
+.btn-secondary{background:#fff; color:var(--brand); border:1px solid #eadfd1}
+.btn-secondary:hover{background:#f7efe6}
+.btn-ghost{background:var(--ink); color:#fff; border-radius:999px; padding:10px 14px}
+.btn-ghost:hover{opacity:.9}
+
+/* HERO */
+.hero{
+  position:relative; text-align:center; padding:96px 20px 40px;
+  background: radial-gradient(1200px 600px at 50% -150px, #ffffff, #f1e8dc 55%, #f8f4f0 90%);
+}
+.hero .passport-kicker{letter-spacing:.4em; font-family:'Playfair Display', serif; color:#8a6d6d}
+.brujula{width:88px; opacity:.9}
+.nombres{
+  font-family:'Great Vibes', cursive;
+  font-size: clamp(40px, 7vw, 82px);
+  color:#2a1717; margin:.4rem 0 0;
+}
+.amp{font-size: .8em; opacity:.7}
+.fecha{letter-spacing:.4em; font-family:'Playfair Display', serif; margin:.4rem 0 1.2rem}
+.cta-scroll{margin-top:6px}
+
+/* Fondo compartido */
+.fondo-compartido{position:relative; isolation:isolate}
+.fondo-compartido::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background-image:url('fondo2.jpg'); background-size:cover; background-position:center;
+  opacity:.9; filter:saturate(.95) contrast(1.02);
+}
+
+/* Tarjetas */
+.card{
+  background:var(--paper);
+  border:1px solid #eadfd1;
+  border-radius:16px;
+  padding:20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  transition: transform .2s ease;
+}
+.card:hover{transform:translateY(-4px)}
+
+.info-boda{padding:80px 0; text-align:center}
+.bienvenida{font-family:'Cormorant Garamond', serif; font-size:22px; font-style:italic; color:#3a2a1a; opacity:.85; margin:0 0 10px}
+.titulo{font-family:'Playfair Display', serif; font-size:34px; letter-spacing:2px; margin:0 0 12px; color:var(--ink-soft)}
+.subtitulo{font-size:16px; color:#2c1c0f; display:inline-block; background:#fff; padding:6px 10px; border-radius:8px; border:1px solid #eadfd1}
+
+.polaroid-contenedor{position:relative; max-width:min(560px, 80%); margin:26px auto 36px}
+.marco-polaroid{width:100%; display:block}
+.foto-incrustada{
+  position:absolute; top:11%; left:8%; width:84%; height:65%;
+  object-fit:cover; border-radius:6px; opacity:0; transition:opacity .6s ease;
+}
+.texto-polaroid{position:absolute; bottom:11%; left:0; right:0; text-align:center; font-family:'Great Vibes', cursive; font-size:24px; color:#111; opacity:0; transition:opacity .6s}
+
+.detalles{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:18px; max-width:760px; margin:26px auto 0}
+.bloque img{height:50px; margin-bottom:10px}
+
+/* Contador */
+.cuenta-atras{padding:80px 0; text-align:center; color:#5a2a2a; position:relative}
+.sello-brujula{width:110px; margin-bottom:18px}
+.faltan-titulo{font-size:.9rem; letter-spacing:.5em; margin:10px 0 18px}
+.reloj{display:flex; flex-wrap:wrap; justify-content:center; gap:28px; margin-bottom:36px}
+.reloj div{text-align:center}
+.reloj span{font-size: clamp(24px, 5vw, 40px); font-weight:700; color:#2a1717}
+.reloj p{margin-top:2px; font-weight:600; color:#6f4a4a}
+
+.momentos-boda{
+  display:grid; grid-template-columns:repeat(4, minmax(120px, 1fr));
+  gap:20px; justify-items:center; max-width:820px; margin:0 auto
+}
+.momento{
+  width:100%; max-width:160px; min-height:170px;
+  background:rgba(241,225,225,.38); border:1px solid #eadfd1; border-radius:14px;
+  padding:14px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  box-shadow:0 8px 18px rgba(0,0,0,.08);
+  transition:transform .2s ease;
+}
+.momento:hover{transform:translateY(-3px)}
+.momentos-boda img{width:64px; filter:brightness(0) invert(1)}
+
+/* Formulario */
+.confirmar-asistencia{background:#eee6d9; padding:80px 0}
+.titulo-confirmacion{text-align:center; font-size: clamp(24px, 3.2vw, 32px); letter-spacing:.2em; color:var(--ink-soft); margin:0 0 26px}
+
+.formulario-asistencia{max-width:860px; margin:0 auto; display:flex; flex-direction:column; gap:16px}
+.grid-two{display:grid; grid-template-columns:1fr; gap:12px}
+@media (min-width: 720px){ .grid-two{grid-template-columns:1fr 1fr} }
+
+.field{display:flex; flex-direction:column; gap:6px}
+.field > span{font-weight:600}
+.hint{color:#6b5c5c; font-size:.9rem}
+
+.formulario-asistencia input,
+.formulario-asistencia select,
+.formulario-asistencia textarea{
+  padding:12px 14px; font-size:1rem; border:1px solid #d5cabc; border-radius:12px; background:#fff; color:#291919;
+  outline:none; transition:border .15s ease, box-shadow .15s ease;
+}
+.formulario-asistencia input:focus,
+.formulario-asistencia select:focus,
+.formulario-asistencia textarea:focus{border-color:var(--brand-2); box-shadow:var(--ring)}
+
+.opciones{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:6px}
+.radio{display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #eadfd1; padding:10px 12px; border-radius:999px}
+.radio input{width:18px; height:18px}
+
+.actions{display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:center}
+.form-note{margin:0; color:#6b5c5c}
+
+.footer{ text-align:center; padding:22px; font-size:14px; color:#555; background:#f2f2f2; margin-top:32px}
+
+/* Avión */
+#canvasAvion{
+  position:fixed; inset:0; z-index:-1; pointer-events:none; background:transparent;
+}
+
+/* Small screens */
+@media (max-width: 540px){
+  .site-header nav a{padding:8px}
+  .momentos-boda{grid-template-columns:repeat(2, minmax(120px, 1fr))}
+}

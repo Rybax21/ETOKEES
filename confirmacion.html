@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tarjeta de embarque — Emilio & Sandra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#1f1b1b; --muted:#6d5f5f; --brand:#5a2a2a; --paper:#fff; --bg:#f7f3ee;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:Inter, system-ui, Segoe UI, Roboto, sans-serif; color:var(--ink); background:var(--bg)}
+    .wrap{min-height:100dvh; display:grid; place-items:center; padding:24px}
+    .boarding-pass{
+      position:relative; width:min(940px, 96%); background:var(--paper);
+      border:1px dashed #d8cfc4; border-radius:18px;
+      background-image: radial-gradient(1200px 600px at 50% -150px, #ffffff, #f1e8dc 60%, #f7f3ee 95%);
+      box-shadow:0 30px 60px rgba(0,0,0,.10);
+      overflow:hidden;
+    }
+    .bp-header{padding:22px 24px; border-bottom:1px dashed #dacfc2; background:rgba(255,255,255,.7); display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .bp-header h1{font-family:'Playfair Display', serif; font-size:clamp(20px, 3.6vw, 30px); margin:0}
+    .bp-header p{margin:0; color:var(--muted); font-weight:600}
+    .bp-body{display:grid; grid-template-columns:repeat(2, 1fr); gap:14px 20px; padding:22px 24px}
+    .bp-group{padding:14px 16px; background:#fff; border:1px solid #eadfd1; border-radius:12px}
+    .bp-group span{color:var(--muted)}
+    .bp-footer{padding:18px 24px; border-top:1px dashed #dacfc2; display:flex; align-items:center; justify-content:space-between; gap:10px}
+    .qr{display:grid; place-items:center; padding:18px}
+    .aside{padding:14px 18px; color:#6b5c5c}
+    .big{font-size:clamp(24px, 5vw, 36px); font-weight:700; letter-spacing:.1em}
+    .muted{color:var(--muted)}
+    .actions{display:flex; gap:12px; padding:0 24px 22px}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:12px; font-weight:600; text-decoration:none; cursor:pointer}
+    .btn-primary{background:var(--brand); color:#fff}
+    .btn-secondary{background:#fff; color:var(--brand); border:1px solid #dacfc2}
+    @media (max-width:720px){
+      .bp-body{grid-template-columns:1fr}
+      .bp-footer{flex-direction:column; align-items:flex-start}
+      .actions{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="boarding-pass" role="region" aria-label="Tarjeta de embarque">
+      <div class="bp-header">
+        <h1>Emilio & Sandra Airlines</h1>
+        <p>Tarjeta de embarque</p>
+      </div>
+
+      <div class="bp-body">
+        <div class="bp-group"><span>Nombre:</span> <strong id="nombre">—</strong></div>
+        <div class="bp-group"><span>Parentesco:</span> <strong id="parentesco">—</strong></div>
+        <div class="bp-group"><span>Nº Invitados:</span> <strong id="numeroInvitados">—</strong></div>
+        <div class="bp-group"><span>Teléfono:</span> <strong id="telefono">—</strong></div>
+        <div class="bp-group"><span>¿Chozo?</span> <strong id="chozo">—</strong></div>
+        <div class="bp-group"><span>Canción:</span> <strong id="cancion">—</strong></div>
+        <div class="bp-group" style="grid-column:1 / -1"><span>Mensaje:</span> <strong id="mensaje">—</strong></div>
+      </div>
+
+      <div class="bp-footer">
+        <div>
+          Vuelo: <strong class="big">ES1810</strong> &nbsp;&nbsp;|&nbsp;&nbsp; Puerta: <strong class="big">2025</strong><br>
+          <span class="muted">¡Gracias por confirmar! 💍</span>
+        </div>
+        <div class="qr">
+          <img id="qr" alt="Código QR" width="100" height="100">
+          <div class="aside muted">Muestra este QR al llegar</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="index.html">Volver al inicio</a>
+        <a class="btn btn-secondary" id="guardar" href="#" download="tarjeta-embarque.png">Guardar como imagen</a>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="render" width="1200" height="600" style="display:none"></canvas>
+  <script src="confirmacion.js" defer></script>
+</body>
+</html>
